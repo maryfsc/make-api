@@ -8,6 +8,16 @@ body {
   background-color: $main-color;
 }
 
+.parallax-bg {
+	background-image: $main-bg;
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
 .title-brand {
   font-family: $brand-font;
   font-size: 43px;

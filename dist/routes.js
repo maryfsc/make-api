@@ -5,7 +5,7 @@ page();
 
 function index() {
   document.querySelector('#main-content')
-    .innerHTML = `<div>hewooooo</div>`;
+    .innerHTML = home();
 }
 
 function products() {
@@ -17,5 +17,3 @@ function productsId() {
   document.querySelector('#main-content')
     .innerHTML = `<div>hewooooo product iddd</div>`
 }
-
-

@@ -6,6 +6,15 @@ body {
   background-color: #ffbfbf;
 }
 
+.parallax-bg {
+  background-image: url("./imgs/hero.jpg");
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .title-brand {
   font-family: "Dancing Script", cursive;
   font-size: 43px;
