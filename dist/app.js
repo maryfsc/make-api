@@ -32,21 +32,46 @@ function loadProducts(data) {
   products = data;
   console.log(products);
 
-  showProducts();
+  renderQueryProducts();
 }
 
-function showProducts() {
+function renderQueryProducts() {
   let mainContent = $('#main-content');
+  mainContent.empty();
 
-  mainContent.html(`
-    <div class="row>
-      <div class="col-sm-12">
-        <div>${products.map(product => `
+  mainContent.html(
+    `<div class="row">
+      <div class="col-sm-12 d-flex flex-wrap">
+      ${products.map(product => 
+      ` <div class="my-3 mx-3">
           <h3>${product.name}</h3>
           <h4>${product.brand}</h4>
-          <img src="${product.image_link}" height="150" width="100"`)}
+          <img src="${product.image_link}" height="150" width="150">
+          </div>`).join('')}
         </div>
-      </div>
-    </div>
-    `);
-}
+      </div>`
+
+
+    // <div class="row">
+    //   <div class="col-sm-12">
+    //     <div class="">${products.map(product => `
+    //       <h3>${product.name}</h3>
+    //       <h4>${product.brand}</h4>
+    //       <img src="${product.image_link}" height="150" width="150"`).join('')}
+    //     </div>
+    //   </div>
+    // </div>
+    // `);
+)};
+
+// function renderIndex() {
+//   return `
+//     <div class="container">
+//       <div class="row text-center">
+//         <div class="col-sm-12">
+//           <h1>Welcome to Make API!</h1>
+//           <p>To start, browse all products or search for a specific type of product.</p>
+//         </div>
+//       </div>
+//     </div>`
+// }

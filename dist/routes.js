@@ -1,6 +1,7 @@
 page('/', index);
+page('', index);
 page('/products', products);
-page('/products/:products_id', productsId);
+// page('/products/:products_id', productsId);
 page();
 
 function index() {
@@ -10,7 +11,7 @@ function index() {
       <div class="row text-center">
         <div class="col-sm-12">
           <h1>Welcome to Make API!</h1>
-          <p>To start, browse all products or search for a specific type.</p>
+          <p>To start, browse all products or search for a specific type of product.</p>
         </div>
       </div>
     </div>`;
@@ -21,7 +22,7 @@ function products() {
     .innerHTML = `<div>hewooooo productssss</div>`
 }
 
-function productsId() {
-  document.querySelector('#main-content')
-    .innerHTML = `<div>hewooooo product iddd</div>`
-}
+// function productsId() {
+//   document.querySelector('#main-content')
+//     .innerHTML = `<div>hewooooo product iddd</div>`
+// }
