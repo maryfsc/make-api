@@ -1,3 +1,18 @@
+body {
+  font-family: "Quicksand", sans-serif;
+}
 
+.main-color {
+  background-color: #ffbfbf;
+}
+
+.title-brand {
+  font-family: "Dancing Script", cursive;
+  font-size: 43px;
+}
+
+.product-link {
+  font-size: 22px;
+}
 
 /*# sourceMappingURL=main.css.map */

@@ -1,2 +1,18 @@
 @import "variables";
 
+body {
+  font-family: $secondary-font;
+}
+
+.main-color {
+  background-color: $main-color;
+}
+
+.title-brand {
+  font-family: $brand-font;
+  font-size: 43px;
+}
+
+.product-link {
+  font-size: 22px;
+}
