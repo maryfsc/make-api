@@ -1,22 +1,26 @@
 @import "variables";
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: $secondary-font;
+  height: 100%;
 }
 
 .main-color {
   background-color: $main-color;
 }
 
-.parallax-bg {
-	background-image: $main-bg;
-  height: 100%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-}
+// .parallax-bg {
+//   background-image: url('./imgs/hero.jpg');
+//   height: 100%;
+//   background-attachment: fixed;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
 
 .title-brand {
   font-family: $brand-font;

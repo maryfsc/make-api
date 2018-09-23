@@ -5,7 +5,15 @@ page();
 
 function index() {
   document.querySelector('#main-content')
-    .innerHTML = home();
+    .innerHTML = `
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-sm-12">
+          <h1>Welcome to Make API!</h1>
+          <p>To start, browse all products or search for a specific type.</p>
+        </div>
+      </div>
+    </div>`;
 }
 
 function products() {
