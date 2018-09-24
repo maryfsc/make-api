@@ -12,13 +12,15 @@ function handleError() {
 }
 
 function querySearch() {
+  window.location = "/search_results";
+
   return $('#form-search').val();
 }
 
 function getProducts(e) {
   e.preventDefault();
 
-  const url = `http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${querySearch()}`;
+  const url = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${querySearch()}`;
 
   jQuery.ajax({
     type: 'GET',
@@ -36,6 +38,7 @@ function loadProducts(data) {
 }
 
 function renderQueryProducts() {
+
   let mainContent = $('#main-content');
   mainContent.empty();
 
