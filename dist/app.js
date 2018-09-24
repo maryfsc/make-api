@@ -20,7 +20,7 @@ function querySearch() {
 function getProducts(e) {
   e.preventDefault();
 
-  const url = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${querySearch()}`;
+  const url = `https://ghibliapi.herokuapp.com/films?title=${querySearch()}`;
 
   jQuery.ajax({
     type: 'GET',
@@ -47,9 +47,8 @@ function renderQueryProducts() {
       <div class="col-sm-12 d-flex flex-wrap">
       ${products.map(product => 
       ` <div class="my-3 mx-3">
-          <h3>${product.name}</h3>
-          <h4>${product.brand}</h4>
-          <img src="${product.image_link}" height="150" width="150">
+          <h3>${product.title}</h3>
+          <h4>${product.description}</h4>
           </div>`).join('')}
         </div>
       </div>`
