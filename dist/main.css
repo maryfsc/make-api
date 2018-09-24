@@ -20,4 +20,10 @@ body {
   font-size: 22px;
 }
 
+.product-box {
+  border: 1px solid #ffd3d9;
+  border-radius: 15px;
+  max-width: 295px;
+}
+
 /*# sourceMappingURL=main.css.map */

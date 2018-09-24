@@ -2,6 +2,8 @@ $(document).ready(() => {
   const searchButton = $('#search-button');
   searchButton.on('click', getProducts);
 
+  $('#loading-pic').hide();
+
 }) // end document ready jquery
 
 var products = [];
@@ -16,19 +18,36 @@ function querySearch() {
   return $('#form-search').val();
 }
 
+function loading() {
+  $('#loading-pic').bind('ajaxStart', function(){
+    $(this).show();
+  }).bind('ajaxStop', function(){
+    $(this).hide();
+  });
+
+}
+
 function getProducts(e) {
   e.preventDefault();
+  // loading();
 
   const url = `http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${querySearch()}`;
 
+  $('#loading-pic').show();
+  $('.home-text').hide();
   jQuery.ajax({
     type: 'GET',
     url,
     success: loadProducts,
     error: handleError,
-    crossDomain: true
+    crossDomain: true,
+    complete: function() {
+      $('#loading-pic').hide()
+    }
   })
 }
+
+
 
 function loadProducts(data) {
   products = data;
@@ -46,35 +65,14 @@ function renderQueryProducts() {
     `<div class="row">
       <div class="col-sm-12 d-flex flex-wrap">
       ${products.map(product => 
-      ` <div class="my-3 mx-3">
+      ` <div class="my-3 mx-3 p-2 text-center d-flex flex-column justify-content-center product-box">
           <h3>${product.name}</h3>
           <h4>${product.brand}</h4>
-          <img src="${product.image_link}" height="150" width="150">
+          <img src="${product.image_link}" class="img-fluid img-thumbnail" height="150" width="150">
+          <button type="button" id="add-btn" class="btn btn-light my-3">Add to My List</button>
+          <a class="btn btn-light" href="${product.product_link}">Buy!</a>
           </div>`).join('')}
         </div>
       </div>`
 
-
-    // <div class="row">
-    //   <div class="col-sm-12">
-    //     <div class="">${products.map(product => `
-    //       <h3>${product.name}</h3>
-    //       <h4>${product.brand}</h4>
-    //       <img src="${product.image_link}" height="150" width="150"`).join('')}
-    //     </div>
-    //   </div>
-    // </div>
-    // `);
 )};
-
-// function renderIndex() {
-//   return `
-//     <div class="container">
-//       <div class="row text-center">
-//         <div class="col-sm-12">
-//           <h1>Welcome to Make API!</h1>
-//           <p>To start, browse all products or search for a specific type of product.</p>
-//         </div>
-//       </div>
-//     </div>`
-// }
