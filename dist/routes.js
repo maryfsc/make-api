@@ -1,5 +1,6 @@
 page('/', index);
 page('/list', products);
+// page('/search', )
 // page('/products/:products_id', productsId);
 page();
 

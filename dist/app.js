@@ -18,18 +18,16 @@ function querySearch() {
   return $('#form-search').val();
 }
 
-function loading() {
-  $('#loading-pic').bind('ajaxStart', function(){
-    $(this).show();
-  }).bind('ajaxStop', function(){
-    $(this).hide();
-  });
+// function changeRoute(e) {
+//   e.preventDefault();
 
-}
+//   getProducts();
+
+//   // return window.location.hash = "#products";
+// }
 
 function getProducts(e) {
   e.preventDefault();
-  // loading();
 
   const url = `http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${querySearch()}`;
 
@@ -46,8 +44,6 @@ function getProducts(e) {
     }
   })
 }
-
-
 
 function loadProducts(data) {
   products = data;
@@ -74,5 +70,6 @@ function renderQueryProducts() {
           </div>`).join('')}
         </div>
       </div>`
+      )
+};
 
-)};
