@@ -1,5 +1,7 @@
 page('/', index);
-page('/list', products);
+page('/lipstick',  listProducts);
+page('/blush', listProducts);
+page('/mascara', listProducts);
 // page('/search', )
 // page('/products/:products_id', productsId);
 page();
@@ -19,9 +21,9 @@ function index() {
     </div>`;
 }
 
-function products() {
-  document.querySelector('#main-content')
-    .innerHTML = `<div>hewooooo productssss</div>`
+function listProducts() {
+
+  getProducts();
 }
 
 // function productsId() {
