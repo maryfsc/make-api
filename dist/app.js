@@ -1,8 +1,6 @@
 $(document).ready(() => {
-  const searchButton = $('#search-button');
-  searchButton.on('click', getProducts);
-
-
+  // const searchButton = $('#search-button');
+  // searchButton.on('click', getProducts);
 
   $('#loading-pic').hide();
 
@@ -15,25 +13,13 @@ function handleError() {
   console.log('an error occured!');
 }
 
-function querySearch() { 
-  
-  return $('.dp-link').attr('data-product');
-}
+function getProducts(clicked) {
 
-// function changeRoute(e) {
-//   e.preventDefault();
-
-//   getProducts();
-
-//   // return window.location.hash = "#products";
-// }
-
-function getProducts() {
-
-  const url = `http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${querySearch()}`;
+  const url = `http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${clicked}`;
 
   $('#loading-pic').show();
   $('.home-text').hide();
+
   jQuery.ajax({
     type: 'GET',
     url,
@@ -45,7 +31,7 @@ function getProducts() {
     }
   })
 
-  console.log(querySearch());
+  console.log(clicked);
 }
 
 function loadProducts(data) {

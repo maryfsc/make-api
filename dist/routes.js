@@ -1,12 +1,11 @@
 page('/', index);
-page('/lipstick',  listProducts);
-page('/blush', listProducts);
-page('/mascara', listProducts);
-// page('/search', )
-// page('/products/:products_id', productsId);
+page('/mascara', productsList);
+page('/lipstick', productsList);
+page('/blush', productsList);
 page();
 
 function index() {
+
   document.querySelector('#main-content')
     .innerHTML = `
     <div class="container">
@@ -21,12 +20,11 @@ function index() {
     </div>`;
 }
 
-function listProducts() {
+function productsList(context) {
+    
+  let selected = context.path.replace('/', '');
 
-  getProducts();
+  console.log(selected);
+
+  getProducts(selected);
 }
-
-// function productsId() {
-//   document.querySelector('#main-content')
-//     .innerHTML = `<div>hewooooo product iddd</div>`
-// }
