@@ -1,7 +1,4 @@
 $(document).ready(() => {
-  // const searchButton = $('#search-button');
-  // searchButton.on('click', getProducts);
-
   $('#loading-pic').hide();
 
 }) // end document ready jquery
@@ -30,18 +27,16 @@ function getProducts(clicked) {
       $('#loading-pic').hide()
     }
   })
-
-  console.log(clicked);
 }
 
 function loadProducts(data) {
-  products = data;
+  let products = data;
   console.log(products);
 
-  renderQueryProducts();
+  renderProducts();
 }
 
-function renderQueryProducts() {
+function renderProducts() {
 
   let mainContent = $('#main-content');
   mainContent.empty();
@@ -50,15 +45,18 @@ function renderQueryProducts() {
     `<div class="row">
       <div class="col-sm-12 d-flex flex-wrap">
       ${products.map(product => 
-      ` <div class="my-3 mx-3 p-2 text-center d-flex flex-column justify-content-center product-box">
+      ` <div id="${product.id}" class="my-3 mx-3 p-2 text-center d-flex flex-column justify-content-center product-box">
           <h3>${product.name}</h3>
           <h4>${product.brand}</h4>
           <img src="${product.image_link}" class="img-fluid img-thumbnail" height="150" width="150">
-          <button type="button" id="add-btn" class="btn btn-light my-3">Add to My List</button>
-          <a class="btn btn-light" href="${product.product_link}">Buy!</a>
+          <p>$${product.price}</p>
+          <a href="/shopcart" class="btn btn-light my-3 add-btn">Add to My List</a>
           </div>`).join('')}
         </div>
       </div>`
       )
 };
+
+
+// <a class="btn btn-light" href="${product.product_link}"></a>
 

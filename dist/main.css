@@ -20,6 +20,11 @@ body {
   font-size: 22px;
 }
 
+.shop-icon {
+  text-decoration: none;
+  font-size: 37px;
+}
+
 .product-box {
   border: 1px solid #ffd3d9;
   border-radius: 15px;
