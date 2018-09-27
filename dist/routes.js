@@ -2,8 +2,10 @@ page('/', index);
 page('/mascara', productsList);
 page('/lipstick', productsList);
 page('/blush', productsList);
+page('/:products/:ProductId', singleProduct)
 page('/shopcart', shopCart);
 page();
+
 
 function index() {
 
@@ -26,6 +28,16 @@ function productsList(context) {
 
   getProducts(selected);
 }
+
+function singleProduct(context) {
+
+  let selectedProductType = context.params.products;
+  let selectedProduct = context.params.ProductId;
+  
+
+  getSingleProduct(selectedProduct);
+}
+
 
 function shopCart() {
   console.log('shopcart!!!')
