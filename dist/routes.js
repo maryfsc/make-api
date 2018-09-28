@@ -3,7 +3,7 @@ page('/mascara', productsList);
 page('/lipstick', productsList);
 page('/blush', productsList);
 page('/:products/:ProductId', singleProduct)
-page('/shopcart', shopCart);
+page('/checkout', checkout);
 page();
 
 
@@ -31,14 +31,12 @@ function productsList(context) {
 
 function singleProduct(context) {
 
-  let selectedProductType = context.params.products;
   let selectedProduct = context.params.ProductId;
-  
 
   getSingleProduct(selectedProduct);
 }
 
 
-function shopCart() {
-  console.log('shopcart!!!')
+function checkout(context) {
+  console.log(context)
 }

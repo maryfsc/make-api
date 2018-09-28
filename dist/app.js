@@ -6,26 +6,22 @@ $(document).ready(() => {
 var products = [];
 
 function handleError() {
-  // to be implemented
   throw new Error('Request failed!');
 }
 
 function getProducts(clicked) {
 
-  const url = `http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${clicked}`;
-
   $('#loading-pic').show();
   $('.home-text').hide();
+
+  const url = `http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${clicked}`;
 
   jQuery.ajax({
     type: 'GET',
     url,
     success: loadProducts,
     error: handleError,
-    crossDomain: true,
-    complete: function() {
-      $('#loading-pic').hide()
-    }
+    crossDomain: true
   })
 }
 
@@ -37,7 +33,7 @@ function loadProducts(data) {
 
 function renderProducts(selected) {
   var mainContent = $('#main-content');
-  
+
   mainContent.empty();
 
   mainContent.html(
@@ -81,13 +77,16 @@ function renderProductInfo(product) {
   mainContent.html(`
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 offset-lg-3">
         ${product.map(item => 
-          ` <div class="product-details">
+          ` <div class="text-center product-details">
               <h3>${item.name}</h3>
               <h4>${item.brand}</h4>
-              <img src="${item.image_link}" class="img-fluid img-thumbnail" height="200" width="200">
-              <p>${item.description}</p>
+              <img src="${item.image_link}" class="img-fluid img-thumbnail" height="250" width="250">
+              <h4 class="mt-2">$ ${item.price}</h4>
+              <p class="mt-2">${item.description}</p>
+              <a id="checkout-btn" class="btn btn-light my-3" data-id="${item.id}" href="/checkout">Add to basket</a>
+              <a class="btn btn-light" href="${item.product_link}">Brand site</a>
             </div>`
         ).join('')}
       </div>
