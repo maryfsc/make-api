@@ -8,21 +8,20 @@ page();
 
 
 function index() {
-  renderIndex();
+  return renderIndex();
 }
 
 function productsList(context) {  
   let selected = context.path.replace('/', '');
 
-  getProducts(selected);
+  return getProducts(selected);
 }
 
 function singleProduct(context) {
   let selectedProduct = context.params.ProductId;
 
-  getSingleProduct(selectedProduct);
+  return getSingleProduct(selectedProduct);
 }
-
 
 function checkout(context) {
   console.log(context)

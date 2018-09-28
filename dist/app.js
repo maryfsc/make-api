@@ -28,7 +28,7 @@ function getProducts(clicked) {
   $('#loading-pic').show();
   $('.home-text').hide();
 
-  const url = `http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${clicked}`;
+  const url = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${clicked}`;
 
   jQuery.ajax({
     type: 'GET',
