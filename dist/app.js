@@ -3,6 +3,20 @@ $(document).ready(() => {
 
 }) // end document ready jquery
 
+function renderIndex() {
+    var mainContent = $('#main-content');
+    mainContent.html(`
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-sm-12">
+          <h1 class="home-text">Welcome to Make API!</h1>
+          <p class="home-text">To start, browse products in the menu list.</p>
+          <img id="loading-pic" class="align-self-center" src="https://loading.io/spinners/eclipse/lg.ring-loading-gif.gif">
+        </div>
+      </div>
+    </div>`);
+}
+
 var products = [];
 
 function handleError() {
@@ -92,5 +106,6 @@ function renderProductInfo(product) {
       </div>
     </div>
     `)
+
 }
 
