@@ -13,15 +13,6 @@ body {
   background-color: $main-color;
 }
 
-// .parallax-bg {
-//   background-image: url('./imgs/hero.jpg');
-//   height: 100%;
-//   background-attachment: fixed;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-// }
-
 .title-brand {
   font-family: $brand-font;
   font-size: 43px;
@@ -31,14 +22,18 @@ body {
   font-size: $menu-font-size;
 }
 
-.shop-icon {
-  text-decoration: none;
-  font-size: $menu-icon-size;
-
-}
-
 .product-box {
   border: 1px solid #ffd3d9;
   border-radius: 15px;
   max-width: 295px;
+}
+
+.product-img {
+  width: 150px;
+}
+
+.product-carousel {
+  margin: 0 auto;
+  height: 700px;
+  width: 700px;
 }
