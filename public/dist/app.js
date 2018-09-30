@@ -1,12 +1,7 @@
 $(document).ready(() => {
   $('#loading-pic').hide();
 
-  $('.product-box').hover(function() {
-    $(this).addClass('mouse-zoom');
-  }, function() {
-    $(this).removeClass('mouse-zoom');
-  });
-}) // end document ready jquery
+}); // end document ready jquery
 
 function renderIndex() {
     var mainContent = $('#main-content');
@@ -16,34 +11,34 @@ function renderIndex() {
         <div class="col-sm-12">
           <h1 class="home-text">Welcome to Make API!</h1>
           <p class="home-text">To start, browse products in the menu list.</p>
-          <img id="loading-pic" class="align-self-center" src="https://loading.io/spinners/eclipse/lg.ring-loading-gif.gif">
-          <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+          <div id="carouselPics" class="carousel slide carousel-fade product-carousel" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-              <img class="d-block w-100" src=".../800x400?auto=yes&bg=777&fg=555&text=First slide" alt="First slide">
+              <img class="d-block w-100" src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?ixlib=rb-0.3.5&s=6b320c3e8911938beae5c8ef35ff11c2&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb" alt="First slide">
             </div>
               <div class="carousel-item">
-               <img class="d-block w-100" src=".../800x400?auto=yes&bg=666&fg=444&text=Second slide" alt="Second slide">
+               <img class="d-block w-100" src="https://images.unsplash.com/photo-1518715982419-9015401820ce?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=458b587e0a2a7dbca10b7e7b486aa0a8&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb" alt="Second slide">
             </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src=".../800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="Third slide">
+                <img class="d-block w-100" src="https://images.unsplash.com/photo-1512351647878-a53b7c6e4868?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=536833b40e1d9c6fbdb63c8a25ac9187&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb" alt="Third slide">
               </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselPics" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselPics" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
+          <img id="loading-pic" class="align-self-center" src="https://loading.io/spinners/eclipse/lg.ring-loading-gif.gif">
         </div>
       </div>
     </div>`);
 }
 
-const products = [];
+var products = [];
 
 function handleError() {
   throw new Error('Request failed!');
@@ -53,6 +48,7 @@ function getProducts(clicked) {
 
   $('#loading-pic').show();
   $('.home-text').hide();
+  $('#carouselPics').hide();
 
   const url = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${clicked}`;
 
@@ -81,10 +77,10 @@ function renderProducts(selected) {
       <div class="row">
         <div class="col-sm-12 d-flex flex-wrap">
         ${products.map(product => 
-        ` <div id="${product.id}" class="my-3 mx-3 p-2 text-center d-flex flex-column justify-content-center product-box mouse-zoom">
+        ` <div id="${product.id}" class="my-3 mx-3 p-2 text-center d-flex flex-column justify-content-center product-box">
             <h3>${product.name}</h3>
             <h4>${product.brand}</h4>
-            <img src="${product.image_link}" class="img-fluid img-thumbnail" height="150" width="150">
+            <img src="${product.image_link}" class="img-fluid img-thumbnail product-img">
             <p>$ ${product.price}</p>
             <a href="/${product.product_type}/${product.id}" class="btn btn-light my-3 details-btn">Details</a>
             </div>`).join('')}
@@ -110,7 +106,7 @@ function checkProductId(productTypeArray, singleProduct) {
 }
 
 function renderProductInfo(product) {
-  let mainContent = $('#main-content');
+  var mainContent = $('#main-content');
 
   mainContent.empty();
 
@@ -132,6 +128,4 @@ function renderProductInfo(product) {
       </div>
     </div>
     `)
-
 }
-
